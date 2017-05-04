@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RaseedProject"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="855" MinHeight="650" MaxHeight="650" MinWidth="855" MaxWidth="855">
+        Title="MainWindow" Height="650" Width="855" MinHeight="650" MaxHeight="650" MinWidth="855" MaxWidth="855"
+        Closing='Window_Closing'>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
