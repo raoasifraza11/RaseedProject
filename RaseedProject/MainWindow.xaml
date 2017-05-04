@@ -37,41 +37,33 @@
         <Label Content="REPAIR JOB SHEET" FontWeight="Bold" Grid.ColumnSpan="2" FontSize="14" Margin="95,25,185,65" Grid.Row="1" Grid.Column="1" />
         <Label Content="Job No:" FontWeight="Bold" Grid.ColumnSpan="2" FontSize="14" Margin="145,24,215,65" Grid.Row="1" Grid.Column="2" />
         <TextBox Grid.Column="3" Foreground="Red" Grid.Row="1" BorderThickness="1" Padding="5,8,5,5" BorderBrush="Black" Margin="0,21,20,66"/>
-        <TextBox Grid.Row="1" Foreground="Red" Margin="20,55,75,35" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1" Padding="55,7,5,5"  />
+        <TextBox x:Name="name" Grid.Row="1" Foreground="Red" Margin="20,55,75,35" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1" Padding="55,7,5,5"  />
         <Label Content="NAME:" Grid.Row="1" FontSize="13" Margin="25,58,130,30" />
         <Label Content="ARTICLE BRAND" Grid.Column="1" Grid.Row="1" FontSize="13" BorderBrush="Black" BorderThickness="1" Margin="134,55,180,35" Grid.ColumnSpan="2" Padding="5,7,0,0" />
-      <!--
+        <!--
       
-      -->  
-      <ComboBox Grid.Row="1" Foreground="Red" Grid.Column="2" Padding="5,8,5,5" Margin="28,55,75,35" BorderBrush="Black" BorderThickness="1"/>
+      -->
+        <ComboBox x:Name="brand" Grid.Row="1" Foreground="Red" Grid.Column="2" Padding="5,8,5,5" Margin="28,55,75,35" BorderBrush="Black" BorderThickness="1"/>
 
         <Label Content="RECEIVED ON" Grid.Column="2" Grid.Row="1" FontSize="13" BorderBrush="Black" BorderThickness="1" Padding="14,7,2,2" Margin="133,55,180,35" Grid.ColumnSpan="2" />
-      
-    <DatePicker Grid.Row="1" Foreground="Red" Grid.Column="3" Padding="5,8,5,5" Margin="28,55,95,35" BorderBrush="Black" BorderThickness="1"/>
-<!-- Git upload -->
-        <Label Content="W/S" Grid.Column="3" Grid.Row="1" FontSize="13" BorderBrush="Black" BorderThickness="1" Padding="5,7,1,1" Margin="114,55,60,35" Grid.ColumnSpan="1" />
-        <TextBox  Grid.Column="3" Grid.Row="1" FontSize="13" BorderBrush="Black" BorderThickness="1" Padding="5,7,1,1" Margin="148,55,20,35" Grid.ColumnSpan="1" Foreground="Red"/>
-        <RichTextBox Grid.Row="1" Foreground="Red" Padding="60,08,5,5" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="2" Margin="20,86,75,68" Grid.ColumnSpan="2"  />
+
+        <DatePicker x:Name="recived_date" Grid.Row="1" Foreground="Red" Grid.Column="3" Padding="5,8,5,5" Margin="28,55,20,35" BorderBrush="Black" BorderThickness="1"/>
+        <!-- Git upload -->
+        <RichTextBox x:Name="address" Grid.Row="1" Foreground="Red" Padding="60,08,5,5" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="2" Margin="20,86,75,68" Grid.ColumnSpan="2"  />
         <Label Grid.Row="1" Margin="20,90,120,0" FontSize="13" Content="ADDRESS:"/>
         <Label Content="ARTICLE TYPE" Grid.Column="1" Grid.Row="1" FontSize="13" BorderBrush="Black" BorderThickness="1" Margin="134,86,180,4" Grid.ColumnSpan="2" Padding="15,7,0,0" />
-        <ComboBox Grid.Row="1" Foreground="Red" Grid.Column="2" Padding="5,8,5,5" Margin="28,86,75,127" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="1"/>
+        <ComboBox x:Name="article_type" Grid.Row="1" Foreground="Red" Grid.Column="2" Padding="5,8,5,5" Margin="28,86,75,127" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="1"/>
 
 
         <Label Content="PROMISED ON" Grid.Column="2" Grid.Row="1" FontSize="13" BorderBrush="Black" BorderThickness="1" Padding="10,7,2,2" Margin="133,86,180,4" Grid.ColumnSpan="2" />
-        <DatePicker Grid.Row="1" Foreground="Red" Grid.Column="3" Padding="5,8,5,5" Grid.RowSpan="2" Margin="28,86,95,127" BorderBrush="Black" BorderThickness="1"/>
+        <DatePicker x:Name="promised_date" Grid.Row="1" Foreground="Red" Grid.Column="3" Padding="5,8,5,5" Margin="28,86,21,3" BorderBrush="Black" BorderThickness="1"/>
 
-        <Label Content="H/S" Grid.Column="3" Grid.Row="1" FontSize="13" BorderBrush="Black" BorderThickness="1" Padding="5,7,1,1" Margin="114,86,60,4" Grid.ColumnSpan="1" />
-        <TextBox  Grid.Column="3" Foreground="Red" Grid.Row="1" FontSize="13" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="2" Padding="5,7,1,1" Margin="148,86,20,127" Grid.ColumnSpan="1"/>
-
-        <Label Content="ARTICLE TYPE" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2"  FontSize="13" BorderBrush="Black" BorderThickness="1" Margin="134,117,180,98" Grid.ColumnSpan="2" Padding="15,6,0,0" />
+        <Label Content="Accessories" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2"  FontSize="13" BorderBrush="Black" BorderThickness="1" Margin="134,117,180,98" Grid.ColumnSpan="2" Padding="15,6,0,0" />
         <TextBox Grid.Row="1" Foreground="Red" Grid.Column="2" Padding="5,8,5,5" Margin="28,117,75,98" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="1"/>
 
 
         <Label Content="READY ON" Grid.Column="2" Grid.Row="1" FontSize="13" BorderBrush="Black" BorderThickness="1" Padding="21,7,2,2" Margin="133,117,180,98" Grid.RowSpan="2" Grid.ColumnSpan="2" />
-        <DatePicker Grid.Row="1" Foreground="Red" Grid.Column="3" Padding="5,8,5,5" Grid.RowSpan="2" Margin="28,117,95,98" BorderBrush="Black" BorderThickness="1"/>
-
-        <Label Content="P" FontWeight="Bold" Grid.Column="3" Grid.Row="1" FontSize="13" BorderBrush="Black" BorderThickness="1" Padding="10,7,1,1" Grid.RowSpan="2" Margin="114,117,60,98" Grid.ColumnSpan="1" />
-        <TextBox  Grid.Column="3" Grid.Row="1" FontSize="13" BorderBrush="Black" BorderThickness="1" Foreground="Red" Grid.RowSpan="2" Padding="5,7,1,1" Margin="148,117,20,98" Grid.ColumnSpan="1"/>
+        <DatePicker x:Name="ready_on" Grid.Row="1" Foreground="Red" Grid.Column="3" Padding="5,8,5,5" Grid.RowSpan="2" Margin="28,117,21,98" BorderBrush="Black" BorderThickness="1"/>
 
 
         <Label Content="MODEL NO." Grid.Column="1" Grid.Row="2"   FontSize="13" BorderBrush="Black" BorderThickness="1" Margin="134,24,180,68" Grid.ColumnSpan="2" Padding="15,6,0,0" />
@@ -79,28 +71,25 @@
 
 
         <Label Content="DELEIVERED ON" Grid.Column="2" Grid.Row="2" FontSize="13" BorderBrush="Black" BorderThickness="1" Padding="8,7,2,2" Margin="133,24,180,68"  Grid.ColumnSpan="2" />
-        <DatePicker Grid.Row="2" Foreground="Red" Grid.Column="3" Padding="5,8,5,5"  Margin="28,24,95,68" BorderBrush="Black" BorderThickness="1"/>
-
-        <Label Content="W" FontWeight="Bold" Grid.Column="3" Grid.Row="2" FontSize="13" BorderBrush="Black" BorderThickness="1" Padding="8,7,1,1"  Margin="114,24,60,68" Grid.ColumnSpan="1" />
-        <TextBox  Grid.Column="3" Grid.Row="2" FontSize="13" BorderBrush="Black" BorderThickness="1" Foreground="Red" Padding="5,7,1,1" Margin="148,24,20,68" Grid.ColumnSpan="1"/>
+        <DatePicker x:Name="dlived_on" Grid.Row="2" Foreground="Red" Grid.Column="3" Padding="5,8,5,5"  Margin="28,24,21,68" BorderBrush="Black" BorderThickness="1"/>
 
         <Label BorderBrush="Black" BorderThickness="1" Grid.Row="2" Margin="20,54,110,38" FontSize="13" Content="PHONE NO:" />
-        <TextBox Grid.Row="2" Foreground="Red" Padding="5,8,5,5" BorderBrush="Black"  BorderThickness="1" Grid.RowSpan="2" Margin="99,54,75,160" Grid.ColumnSpan="2"  />
+        <TextBox x:Name="phone_no" Grid.Row="2" Foreground="Red" Padding="5,8,5,5" BorderBrush="Black"  BorderThickness="1" Grid.RowSpan="2" Margin="99,54,75,160" Grid.ColumnSpan="2"  />
         <Label Content="SERIAL NO." Grid.Column="1" Grid.Row="2"   FontSize="13" BorderBrush="Black" BorderThickness="1" Margin="134,54,180,38" Grid.ColumnSpan="2" Padding="15,6,0,0" />
-        <TextBox Grid.Row="2" Foreground="Red" Grid.ColumnSpan="2" Grid.Column="2" Padding="5,8,5,5" Margin="28,54,20,38" BorderBrush="Black" BorderThickness="1"/>
+        <TextBox x:Name="serial_no" Grid.Row="2" Foreground="Red" Grid.ColumnSpan="2" Grid.Column="2" Padding="5,8,5,5" Margin="28,54,20,38" BorderBrush="Black" BorderThickness="1"/>
         <Label BorderBrush="Black" BorderThickness="1" Grid.Row="2" Margin="20,84,110,8" Padding="9,0,0,3" FontSize="11" Content="DATE OF" />
-        <TextBox Grid.Row="2" Foreground="Red" Padding="5,8,5,5" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="2" Margin="99,84,75,130" Grid.ColumnSpan="2"  />
+        <DatePicker x:Name="purchase_date" Grid.Row="2" Foreground="Red" Padding="5,8,5,5" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="2" Margin="99,84,75,130" Grid.ColumnSpan="2"  />
         <Label Grid.Row="2" Margin="20,96,110,0" FontSize="11" Padding="8,0,0,8" Content="PURCHASE" />
         <Label Content="REMARKS" Grid.Column="1" Grid.Row="2"   FontSize="13" BorderBrush="Black" BorderThickness="1" Margin="134,84,180,8" Grid.ColumnSpan="2" Padding="15,6,0,0" />
         <TextBox Grid.Row="2" Foreground="Red" Grid.ColumnSpan="2" Grid.Column="2" Padding="5,8,5,5" Margin="28,84,20,8" BorderBrush="Black" BorderThickness="1"/>
         <Label BorderBrush="Black" BorderThickness="1" Grid.Row="2" Grid.RowSpan="2" Margin="20,114,110,101" Padding="9,0,0,3" FontSize="11" Content="WARRANTY" />
-        <TextBox Grid.Row="2" Foreground="Red" Padding="5,8,5,5" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="2" Margin="99,114,75,101" Grid.ColumnSpan="2"  />
+        <TextBox x:Name="wranty_code" Grid.Row="2" Foreground="Red" Padding="5,8,5,5" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="2" Margin="99,114,75,101" Grid.ColumnSpan="2"  />
         <Label Grid.Row="2" Grid.RowSpan="2" Margin="20,124,110,94" FontSize="11" Padding="12,2,0,8" Content="CARD NO" />
 
 
 
         <Label Content="FAULT" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2"  FontSize="13" BorderBrush="Black" BorderThickness="1" Margin="134,114,180,101" Grid.ColumnSpan="2" Padding="32,0,0,0" />
-        <TextBox Grid.Row="2" Grid.RowSpan="2" Foreground="Red" Grid.Column="2" Padding="5,8,5,5" Margin="28,114,75,101" BorderBrush="Black" BorderThickness="1"/>
+        <TextBox x:Name="fault_reported" Grid.Row="2" Grid.RowSpan="2" Foreground="Red" Grid.Column="2" Padding="5,8,5,5" Margin="28,114,75,101" BorderBrush="Black" BorderThickness="1"/>
         <Label Content="REPORTED" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2"  FontSize="13"  Margin="134,124,180,91" Grid.ColumnSpan="2" Padding="19,2,0,0" />
 
         <Label Content="REPAIRING" Grid.Column="2" Grid.Row="2" FontSize="13" BorderBrush="Black" BorderThickness="1" Padding="32,0,0,0" Margin="133,114,160,101" Grid.RowSpan="2" Grid.ColumnSpan="2" />
@@ -109,15 +98,15 @@
 
 
         <Label BorderBrush="Black" BorderThickness="1" Grid.Row="2" Grid.RowSpan="2" Margin="20,143,110,70" Padding="5,8,0,3" FontSize="9" Content="CASH MEMO NO." />
-        <TextBox Grid.Row="2" Foreground="Red" Padding="5,8,5,5" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="2" Margin="99,143,75,70" Grid.ColumnSpan="2"  />
+        <TextBox x:Name="cash_memo_num" Grid.Row="2" Foreground="Red" Padding="5,8,5,5" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="2" Margin="99,143,75,70" Grid.ColumnSpan="2"  />
 
 
         <Label Content="PREVIOUS" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2"  FontSize="13" BorderBrush="Black" BorderThickness="1" Margin="134,143,180,70" Grid.ColumnSpan="2" Padding="15,0,0,0" />
-        <TextBox Grid.Row="2" Grid.RowSpan="2" Foreground="Red" Grid.Column="2" Padding="5,8,5,5" Margin="28,143,75,70" BorderBrush="Black" BorderThickness="1"/>
+        <TextBox x:Name="previous_job_no" Grid.Row="2" Grid.RowSpan="2" Foreground="Red" Grid.Column="2" Padding="5,8,5,5" Margin="28,143,75,70" BorderBrush="Black" BorderThickness="1"/>
         <Label Content="JOB NO" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2"  FontSize="13"  Margin="134,154,180,60" Grid.ColumnSpan="2" Padding="22,2,0,0" />
 
         <Label Content="DELIVERE DATE" Grid.Column="2" Grid.Row="2" FontSize="13" BorderBrush="Black" BorderThickness="1" Padding="16,7,16,5" Margin="133,143,160,70" Grid.RowSpan="2" Grid.ColumnSpan="2" />
-        <TextBox Grid.Row="2" Foreground="Red" Grid.Column="3" Padding="5,8,5,5" Grid.RowSpan="2" Margin="49,143,20,70" BorderBrush="Black" BorderThickness="1"/>
+        <DatePicker x:Name="dliver_date" Grid.Row="2" Foreground="Red" Grid.Column="3" Padding="5,8,5,5" Grid.RowSpan="2" Margin="49,143,20,70" BorderBrush="Black" BorderThickness="1"/>
 
 
         <RichTextBox Grid.Row="2" Foreground="Red" Padding="62,9,5,5" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="2" Margin="20,174,75,-10" Grid.ColumnSpan="2"  />
@@ -135,17 +124,17 @@
 
         <Label Content="QTY" Grid.Column="4"  Grid.Row="2" Grid.RowSpan="2"   FontSize="13"  Margin="29,204,130,10" Padding="13,5,0,0" BorderBrush="Black" BorderThickness="1"/>
 
-        <Label Content="REMARKS" Grid.Column="4"  Grid.Row="2" Grid.RowSpan="2"   FontSize="13"  Margin="79,204,20,10" Padding="20,5,20,0" BorderBrush="Black" BorderThickness="1"/>
+        <Label Content="Price" Grid.Column="4"  Grid.Row="2" Grid.RowSpan="2"   FontSize="13"  Margin="79,204,20,10" Padding="20,5,20,0" BorderBrush="Black" BorderThickness="1"/>
 
-        <TextBox FontSize="11" Grid.Row="3" Grid.RowSpan="2" Foreground="Red" Grid.Column="1"  Padding="3,2,3,3" Margin="134,111,20,112" BorderBrush="Black" BorderThickness="1"/>
+        <TextBox x:Name="eng_code" FontSize="11" Grid.Row="3" Grid.RowSpan="2" Foreground="Red" Grid.Column="1"  Padding="3,2,3,3" Margin="134,111,20,112" BorderBrush="Black" BorderThickness="1"/>
 
-        <TextBox FontSize="11" Grid.Row="3" Grid.RowSpan="2" Grid.ColumnSpan="2" Foreground="Red" Grid.Column="2"  Padding="3,2,3,3" Margin="108,111,180,112" BorderBrush="Black" BorderThickness="1"/>
+        <TextBox x:Name="discprition_code" FontSize="11" Grid.Row="3" Grid.RowSpan="2" Grid.ColumnSpan="2" Foreground="Red" Grid.Column="2"  Padding="3,2,3,3" Margin="108,111,180,112" BorderBrush="Black" BorderThickness="1"/>
 
-        <TextBox FontSize="11" Grid.Row="3" Grid.RowSpan="2" Grid.ColumnSpan="1" Foreground="Red" Grid.Column="2"  Padding="3,2,3,3" Margin="-21,111,100,112" BorderBrush="Black" BorderThickness="1"/>
+        <TextBox x:Name="part_code" FontSize="11" Grid.Row="3" Grid.RowSpan="2" Grid.ColumnSpan="1" Foreground="Red" Grid.Column="2"  Padding="3,2,3,3" Margin="-21,111,100,112" BorderBrush="Black" BorderThickness="1"/>
 
-        <TextBox FontSize="11" Grid.Row="3" Grid.RowSpan="2" Foreground="Red" Grid.Column="3"  Padding="3,2,3,3" Margin="29,111,130,112" BorderBrush="Black" BorderThickness="1"/>
+        <TextBox x:Name="quntatiy" FontSize="11" Grid.Row="3" Grid.RowSpan="2" Foreground="Red" Grid.Column="3"  Padding="3,2,3,3" Margin="29,111,130,112" BorderBrush="Black" BorderThickness="1"/>
 
-        <TextBox FontSize="11" Grid.RowSpan="2" Grid.Row="3"  Grid.ColumnSpan="3" Foreground="Red" Grid.Column="2"  Padding="3,2,3,3" Margin="288,111,20,112" BorderBrush="Black" BorderThickness="1"/>
+        <TextBox x:Name="price" FontSize="11" Grid.RowSpan="2" Grid.Row="3"  Grid.ColumnSpan="3" Foreground="Red" Grid.Column="2"  Padding="3,2,3,3" Margin="288,111,20,112" BorderBrush="Black" BorderThickness="1"/>
 
         <TextBox FontSize="11" Grid.Row="4"  Foreground="Red" Grid.Column="1" Margin="134,9,19,93" Padding="3,2,3,3" BorderBrush="Black" BorderThickness="1"/>
 
@@ -158,15 +147,11 @@
         <TextBox FontSize="11" Grid.RowSpan="2" Grid.Row="3"  Foreground="Red" Grid.Column="3" Margin="79,131,20,93" Padding="3,2,3,3" BorderBrush="Black" BorderThickness="1"/>
 
 
-        <TextBox Grid.Row="4" Foreground="Red" Grid.Column="0" Padding="3,2,3,3" Margin="20,12,50,85" BorderBrush="Black" BorderThickness="1"/>
 
-        <TextBox Grid.Row="4" Foreground="Red" Grid.Column="0" Padding="3,2,3,3" Margin="162,12,4,85" BorderBrush="Black" BorderThickness="1"/>
 
-        <TextBox Grid.Row="4" Foreground="Red" Grid.Column="1" Padding="3,2,3,3" Margin="-5,12,137,85" BorderBrush="Black" BorderThickness="1"/>
 
-        <TextBox Grid.Row="4" Foreground="Red" Grid.Column="1" Padding="3,2,3,3" Margin="44,12,122,85" BorderBrush="Black" BorderThickness="1"/>
 
-        <TextBox Grid.Row="4" Foreground="Red" Grid.Column="1" Padding="3,2,3,3" Margin="87,12,80,85" BorderBrush="Black" BorderThickness="1"/>
+
 
         <TextBox Grid.Row="4" Foreground="Red" Grid.Column="0" Padding="5,8,5,5" Margin="20,39,50,5" BorderBrush="Black" BorderThickness="1"/>
 
@@ -186,25 +171,6 @@
 
         <TextBox FontSize="11" Grid.RowSpan="2" Grid.Row="3"  Foreground="Red" Grid.Column="3" Margin="79,150,20,73" Padding="3,2,3,3" BorderBrush="Black" BorderThickness="1"/>
 
-        <TextBox FontSize="11" Grid.Row="4"  Foreground="Red" Grid.Column="1" Margin="134,48,20,53" Padding="3,2,3,3" BorderBrush="Black" BorderThickness="1"/>
-
-        <TextBox FontSize="11" Grid.RowSpan="2" Grid.Row="3"  Foreground="Red" Grid.Column="2"  Margin="-21,170,100,53" Padding="3,2,3,3" BorderBrush="Black" BorderThickness="1"/>
-
-        <TextBox FontSize="11" Grid.RowSpan="2" Grid.Row="3"  Foreground="Red" Grid.Column="2" Margin="108,170,-30,53" Padding="3,2,3,3" BorderBrush="Black" BorderThickness="1"/>
-
-        <TextBox FontSize="11" Grid.RowSpan="2" Grid.Row="3"  Foreground="Red" Grid.Column="3"  Margin="29,170,130,53" Padding="3,2,3,3" BorderBrush="Black" BorderThickness="1"/>
-
-        <TextBox FontSize="11" Grid.RowSpan="2" Grid.Row="3"  Foreground="Red" Grid.Column="3" Margin="79,170,20,53" Padding="3,2,3,3" BorderBrush="Black" BorderThickness="1"/>
-
-        <TextBox FontSize="11" Grid.Row="4"  Foreground="Red" Grid.Column="1" Margin="134,68,20,33" Padding="3,2,3,3" BorderBrush="Black" BorderThickness="1"/>
-
-        <TextBox FontSize="11" Grid.RowSpan="2" Grid.Row="3"  Foreground="Red" Grid.Column="2"  Margin="-21,190,100,33" Padding="3,2,3,3" BorderBrush="Black" BorderThickness="1"/>
-
-        <TextBox FontSize="11" Grid.RowSpan="2" Grid.Row="3"  Foreground="Red" Grid.Column="2" Margin="108,190,-30,33" Padding="3,2,3,3" BorderBrush="Black" BorderThickness="1"/>
-
-        <TextBox FontSize="11" Grid.RowSpan="2" Grid.Row="3"  Foreground="Red" Grid.Column="3"  Margin="29,190,130,33" Padding="3,2,3,3" BorderBrush="Black" BorderThickness="1"/>
-
-        <TextBox FontSize="11" Grid.RowSpan="2" Grid.Row="3"  Foreground="Red" Grid.Column="3" Margin="79,190,20,33" Padding="3,2,3,3" BorderBrush="Black" BorderThickness="1"/>
 
 
         <Label Grid.Row="4" Foreground="Black" Grid.Column="0" Padding="10,8,5,0" Margin="162,39,-10,55" FontSize="8" BorderBrush="Black" BorderThickness="1" Content="PARTS"/>
@@ -216,7 +182,9 @@
 
         <Label Grid.Row="4" Foreground="Black" Grid.Column="0" Padding="10,8,5,0" Margin="162,91,4,5" FontSize="8" BorderBrush="Black" BorderThickness="1" Content="TOTAL"/>
         <TextBox Grid.Row="4" Foreground="Red" Grid.Column="1" Padding="5,3,3,3" Margin="-5,91,80,5" BorderBrush="Black" BorderThickness="1"/>
-    
+        <Button x:Name="Save" Content="Save" Grid.Column="3" HorizontalAlignment="Left" Margin="64,57,0,0" Grid.Row="4" VerticalAlignment="Top" Width="130" Height="56" Click="Save_Click"/>
+        <Button x:Name="Reset" Grid.ColumnSpan="2" Content="Reset" Grid.Column="2" HorizontalAlignment="Left" Margin="123,58,0,0" Grid.Row="4" VerticalAlignment="Top" Width="121" Height="55"/>
 
-  </Grid>
+
+    </Grid>
 </Window>

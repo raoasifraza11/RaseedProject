@@ -1,0 +1,408 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="jobsheetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Customer_detail_Table">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="address" Type="varchar" MaxLength="150" />
+          <Property Name="phone_no" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="remarks" Type="varbinary" MaxLength="50" />
+          <Property Name="job_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="jobsheetTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cash_memo_no" Type="varchar" MaxLength="50" />
+          <Property Name="recived_date" Type="date" />
+          <Property Name="promise_date" Type="date" />
+          <Property Name="ready_on" Type="date" />
+          <Property Name="dliverd_on" Type="date" />
+          <Property Name="remarks" Type="date" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Product_detail_Table">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="brand_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="artical_type" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="accessoris" Type="varchar" MaxLength="150" />
+          <Property Name="serial_no" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="date_of_purchase" Type="date" />
+          <Property Name="wrranty_card_no" Type="varchar" MaxLength="50" />
+          <Property Name="previous_job_id" Type="int" />
+          <Property Name="job_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="reparing_detail_Table">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="eng_no" Type="int" />
+          <Property Name="product_code" Type="varchar" MaxLength="50" />
+          <Property Name="description" Type="varchar" MaxLength="50" />
+          <Property Name="quntitay" Type="int" />
+          <Property Name="price" Type="int" />
+          <Property Name="job_id" Type="int" />
+        </EntityType>
+        <EntityType Name="userTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="role" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Customer_detail_Table_ToTable">
+          <End Role="jobsheetTable" Type="Self.jobsheetTable" Multiplicity="1" />
+          <End Role="Customer_detail_Table" Type="Self.Customer_detail_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jobsheetTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customer_detail_Table">
+              <PropertyRef Name="job_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_jobsheetTable_ToTable">
+          <End Role="userTable" Type="Self.userTable" Multiplicity="1" />
+          <End Role="jobsheetTable" Type="Self.jobsheetTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="userTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="jobsheetTable">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_detail_Table_ToTable">
+          <End Role="jobsheetTable" Type="Self.jobsheetTable" Multiplicity="0..1" />
+          <End Role="Product_detail_Table" Type="Self.Product_detail_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jobsheetTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product_detail_Table">
+              <PropertyRef Name="previous_job_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_detail_Table_ToTable_1">
+          <End Role="jobsheetTable" Type="Self.jobsheetTable" Multiplicity="1" />
+          <End Role="Product_detail_Table" Type="Self.Product_detail_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jobsheetTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product_detail_Table">
+              <PropertyRef Name="job_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_reparing_detail_Table_ToTable">
+          <End Role="jobsheetTable" Type="Self.jobsheetTable" Multiplicity="0..1" />
+          <End Role="reparing_detail_Table" Type="Self.reparing_detail_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jobsheetTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="reparing_detail_Table">
+              <PropertyRef Name="job_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="jobsheetModelStoreContainer">
+          <EntitySet Name="Customer_detail_Table" EntityType="Self.Customer_detail_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="jobsheetTable" EntityType="Self.jobsheetTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product_detail_Table" EntityType="Self.Product_detail_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="reparing_detail_Table" EntityType="Self.reparing_detail_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="userTable" EntityType="Self.userTable" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Customer_detail_Table_ToTable" Association="Self.FK_Customer_detail_Table_ToTable">
+            <End Role="jobsheetTable" EntitySet="jobsheetTable" />
+            <End Role="Customer_detail_Table" EntitySet="Customer_detail_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_jobsheetTable_ToTable" Association="Self.FK_jobsheetTable_ToTable">
+            <End Role="userTable" EntitySet="userTable" />
+            <End Role="jobsheetTable" EntitySet="jobsheetTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_detail_Table_ToTable" Association="Self.FK_Product_detail_Table_ToTable">
+            <End Role="jobsheetTable" EntitySet="jobsheetTable" />
+            <End Role="Product_detail_Table" EntitySet="Product_detail_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_detail_Table_ToTable_1" Association="Self.FK_Product_detail_Table_ToTable_1">
+            <End Role="jobsheetTable" EntitySet="jobsheetTable" />
+            <End Role="Product_detail_Table" EntitySet="Product_detail_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_reparing_detail_Table_ToTable" Association="Self.FK_reparing_detail_Table_ToTable">
+            <End Role="jobsheetTable" EntitySet="jobsheetTable" />
+            <End Role="reparing_detail_Table" EntitySet="reparing_detail_Table" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="jobsheetModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Customer_detail_Table">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="phone_no" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="remarks" Type="Binary" MaxLength="50" FixedLength="false" />
+          <Property Name="job_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="jobsheetTable" Relationship="Self.FK_Customer_detail_Table_ToTable" FromRole="Customer_detail_Table" ToRole="jobsheetTable" />
+        </EntityType>
+        <EntityType Name="jobsheetTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cash_memo_no" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="recived_date" Type="DateTime" Precision="0" />
+          <Property Name="promise_date" Type="DateTime" Precision="0" />
+          <Property Name="ready_on" Type="DateTime" Precision="0" />
+          <Property Name="dliverd_on" Type="DateTime" Precision="0" />
+          <Property Name="remarks" Type="DateTime" Precision="0" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Customer_detail_Table" Relationship="Self.FK_Customer_detail_Table_ToTable" FromRole="jobsheetTable" ToRole="Customer_detail_Table" />
+          <NavigationProperty Name="userTable" Relationship="Self.FK_jobsheetTable_ToTable" FromRole="jobsheetTable" ToRole="userTable" />
+          <NavigationProperty Name="Product_detail_Table" Relationship="Self.FK_Product_detail_Table_ToTable" FromRole="jobsheetTable" ToRole="Product_detail_Table" />
+          <NavigationProperty Name="Product_detail_Table1" Relationship="Self.FK_Product_detail_Table_ToTable_1" FromRole="jobsheetTable" ToRole="Product_detail_Table" />
+          <NavigationProperty Name="reparing_detail_Table" Relationship="Self.FK_reparing_detail_Table_ToTable" FromRole="jobsheetTable" ToRole="reparing_detail_Table" />
+        </EntityType>
+        <EntityType Name="Product_detail_Table">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="brand_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="artical_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="accessoris" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="serial_no" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="date_of_purchase" Type="DateTime" Precision="0" />
+          <Property Name="wrranty_card_no" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="previous_job_id" Type="Int32" />
+          <Property Name="job_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="jobsheetTable" Relationship="Self.FK_Product_detail_Table_ToTable" FromRole="Product_detail_Table" ToRole="jobsheetTable" />
+          <NavigationProperty Name="jobsheetTable1" Relationship="Self.FK_Product_detail_Table_ToTable_1" FromRole="Product_detail_Table" ToRole="jobsheetTable" />
+        </EntityType>
+        <EntityType Name="reparing_detail_Table">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="eng_no" Type="Int32" />
+          <Property Name="product_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="quntitay" Type="Int32" />
+          <Property Name="price" Type="Int32" />
+          <Property Name="job_id" Type="Int32" />
+          <NavigationProperty Name="jobsheetTable" Relationship="Self.FK_reparing_detail_Table_ToTable" FromRole="reparing_detail_Table" ToRole="jobsheetTable" />
+        </EntityType>
+        <EntityType Name="userTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="jobsheetTables" Relationship="Self.FK_jobsheetTable_ToTable" FromRole="userTable" ToRole="jobsheetTable" />
+        </EntityType>
+        <Association Name="FK_Customer_detail_Table_ToTable">
+          <End Role="jobsheetTable" Type="Self.jobsheetTable" Multiplicity="1" />
+          <End Role="Customer_detail_Table" Type="Self.Customer_detail_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jobsheetTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customer_detail_Table">
+              <PropertyRef Name="job_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_jobsheetTable_ToTable">
+          <End Role="userTable" Type="Self.userTable" Multiplicity="1" />
+          <End Role="jobsheetTable" Type="Self.jobsheetTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="userTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="jobsheetTable">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_detail_Table_ToTable">
+          <End Role="jobsheetTable" Type="Self.jobsheetTable" Multiplicity="0..1" />
+          <End Role="Product_detail_Table" Type="Self.Product_detail_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jobsheetTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product_detail_Table">
+              <PropertyRef Name="previous_job_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_detail_Table_ToTable_1">
+          <End Role="jobsheetTable" Type="Self.jobsheetTable" Multiplicity="1" />
+          <End Role="Product_detail_Table" Type="Self.Product_detail_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jobsheetTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product_detail_Table">
+              <PropertyRef Name="job_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_reparing_detail_Table_ToTable">
+          <End Role="jobsheetTable" Type="Self.jobsheetTable" Multiplicity="0..1" />
+          <End Role="reparing_detail_Table" Type="Self.reparing_detail_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jobsheetTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="reparing_detail_Table">
+              <PropertyRef Name="job_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="jobsheetEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Customer_detail_Table" EntityType="Self.Customer_detail_Table" />
+          <EntitySet Name="jobsheetTables" EntityType="Self.jobsheetTable" />
+          <EntitySet Name="Product_detail_Table" EntityType="Self.Product_detail_Table" />
+          <EntitySet Name="reparing_detail_Table" EntityType="Self.reparing_detail_Table" />
+          <EntitySet Name="userTables" EntityType="Self.userTable" />
+          <AssociationSet Name="FK_Customer_detail_Table_ToTable" Association="Self.FK_Customer_detail_Table_ToTable">
+            <End Role="jobsheetTable" EntitySet="jobsheetTables" />
+            <End Role="Customer_detail_Table" EntitySet="Customer_detail_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_jobsheetTable_ToTable" Association="Self.FK_jobsheetTable_ToTable">
+            <End Role="userTable" EntitySet="userTables" />
+            <End Role="jobsheetTable" EntitySet="jobsheetTables" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_detail_Table_ToTable" Association="Self.FK_Product_detail_Table_ToTable">
+            <End Role="jobsheetTable" EntitySet="jobsheetTables" />
+            <End Role="Product_detail_Table" EntitySet="Product_detail_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_detail_Table_ToTable_1" Association="Self.FK_Product_detail_Table_ToTable_1">
+            <End Role="jobsheetTable" EntitySet="jobsheetTables" />
+            <End Role="Product_detail_Table" EntitySet="Product_detail_Table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_reparing_detail_Table_ToTable" Association="Self.FK_reparing_detail_Table_ToTable">
+            <End Role="jobsheetTable" EntitySet="jobsheetTables" />
+            <End Role="reparing_detail_Table" EntitySet="reparing_detail_Table" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="jobsheetModelStoreContainer" CdmEntityContainer="jobsheetEntities1">
+          <EntitySetMapping Name="Customer_detail_Table">
+            <EntityTypeMapping TypeName="jobsheetModel.Customer_detail_Table">
+              <MappingFragment StoreEntitySet="Customer_detail_Table">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="phone_no" ColumnName="phone_no" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+                <ScalarProperty Name="job_id" ColumnName="job_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="jobsheetTables">
+            <EntityTypeMapping TypeName="jobsheetModel.jobsheetTable">
+              <MappingFragment StoreEntitySet="jobsheetTable">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="cash_memo_no" ColumnName="cash_memo_no" />
+                <ScalarProperty Name="recived_date" ColumnName="recived_date" />
+                <ScalarProperty Name="promise_date" ColumnName="promise_date" />
+                <ScalarProperty Name="ready_on" ColumnName="ready_on" />
+                <ScalarProperty Name="dliverd_on" ColumnName="dliverd_on" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product_detail_Table">
+            <EntityTypeMapping TypeName="jobsheetModel.Product_detail_Table">
+              <MappingFragment StoreEntitySet="Product_detail_Table">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="brand_name" ColumnName="brand_name" />
+                <ScalarProperty Name="artical_type" ColumnName="artical_type" />
+                <ScalarProperty Name="accessoris" ColumnName="accessoris" />
+                <ScalarProperty Name="serial_no" ColumnName="serial_no" />
+                <ScalarProperty Name="date_of_purchase" ColumnName="date_of_purchase" />
+                <ScalarProperty Name="wrranty_card_no" ColumnName="wrranty_card_no" />
+                <ScalarProperty Name="previous_job_id" ColumnName="previous_job_id" />
+                <ScalarProperty Name="job_id" ColumnName="job_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="reparing_detail_Table">
+            <EntityTypeMapping TypeName="jobsheetModel.reparing_detail_Table">
+              <MappingFragment StoreEntitySet="reparing_detail_Table">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="eng_no" ColumnName="eng_no" />
+                <ScalarProperty Name="product_code" ColumnName="product_code" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="quntitay" ColumnName="quntitay" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="job_id" ColumnName="job_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userTables">
+            <EntityTypeMapping TypeName="jobsheetModel.userTable">
+              <MappingFragment StoreEntitySet="userTable">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="role" ColumnName="role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
