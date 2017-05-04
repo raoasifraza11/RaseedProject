@@ -24,19 +24,5 @@ namespace RaseedProject
         {
             InitializeComponent();
         }
-
-<<<<<<< HEAD
-        private void Save_Click(object sender, RoutedEventArgs e)
-        {
-
-
-
-
-=======
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            new Login().Show();
->>>>>>> ec4059d594f0c8b2633bc847cbcc24b2f74a8f75
-        }
     }
 }

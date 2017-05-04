@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RaseedProject"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="855" MinHeight="650" MaxHeight="650" MinWidth="855" MaxWidth="855"
-        Closing='Window_Closing'>
+        Title="MainWindow" Height="650" Width="855" MinHeight="650" MaxHeight="650" MinWidth="855" MaxWidth="855">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -47,20 +46,12 @@
         <ComboBox x:Name="brand" Grid.Row="1" Foreground="Red" Grid.Column="2" Padding="5,8,5,5" Margin="28,55,75,35" BorderBrush="Black" BorderThickness="1"/>
 
         <Label Content="RECEIVED ON" Grid.Column="2" Grid.Row="1" FontSize="13" BorderBrush="Black" BorderThickness="1" Padding="14,7,2,2" Margin="133,55,180,35" Grid.ColumnSpan="2" />
-<<<<<<< HEAD
+
 
         <DatePicker x:Name="recived_date" Grid.Row="1" Foreground="Red" Grid.Column="3" Padding="5,8,5,5" Margin="28,55,20,35" BorderBrush="Black" BorderThickness="1"/>
         <!-- Git upload -->
         <RichTextBox x:Name="address" Grid.Row="1" Foreground="Red" Padding="60,08,5,5" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="2" Margin="20,86,75,68" Grid.ColumnSpan="2"  />
-=======
-      
-    <DatePicker Grid.Row="1" Foreground="Red" Grid.Column="3" Padding="5,8,5,5" Margin="28,55,95,35" BorderBrush="Black" BorderThickness="1"/>
-<!-- Git upload
-      update email id -->
-        <Label Content="W/S" Grid.Column="3" Grid.Row="1" FontSize="13" BorderBrush="Black" BorderThickness="1" Padding="5,7,1,1" Margin="114,55,60,35" Grid.ColumnSpan="1" />
-        <TextBox  Grid.Column="3" Grid.Row="1" FontSize="13" BorderBrush="Black" BorderThickness="1" Padding="5,7,1,1" Margin="148,55,20,35" Grid.ColumnSpan="1" Foreground="Red"/>
-        <RichTextBox Grid.Row="1" Foreground="Red" Padding="60,08,5,5" BorderBrush="Black" BorderThickness="1" Grid.RowSpan="2" Margin="20,86,75,68" Grid.ColumnSpan="2"  />
->>>>>>> ec4059d594f0c8b2633bc847cbcc24b2f74a8f75
+
         <Label Grid.Row="1" Margin="20,90,120,0" FontSize="13" Content="ADDRESS:"/>
         <Label Content="ARTICLE TYPE" Grid.Column="1" Grid.Row="1" FontSize="13" BorderBrush="Black" BorderThickness="1" Margin="134,86,180,4" Grid.ColumnSpan="2" Padding="15,7,0,0" />
         <ComboBox x:Name="article_type" Grid.Row="1" Foreground="Red" Grid.Column="2" Padding="5,8,5,5" Margin="28,86,75,127" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="1"/>
@@ -193,7 +184,7 @@
 
         <Label Grid.Row="4" Foreground="Black" Grid.Column="0" Padding="10,8,5,0" Margin="162,91,4,5" FontSize="8" BorderBrush="Black" BorderThickness="1" Content="TOTAL"/>
         <TextBox Grid.Row="4" Foreground="Red" Grid.Column="1" Padding="5,3,3,3" Margin="-5,91,80,5" BorderBrush="Black" BorderThickness="1"/>
-        <Button x:Name="Save" Content="Save" Grid.Column="3" HorizontalAlignment="Left" Margin="64,57,0,0" Grid.Row="4" VerticalAlignment="Top" Width="130" Height="56" Click="Save_Click"/>
+        <Button x:Name="Save" Content="Save" Grid.Column="3" HorizontalAlignment="Left" Margin="64,57,0,0" Grid.Row="4" VerticalAlignment="Top" Width="130" Height="56" />
         <Button x:Name="Reset" Grid.ColumnSpan="2" Content="Reset" Grid.Column="2" HorizontalAlignment="Left" Margin="123,58,0,0" Grid.Row="4" VerticalAlignment="Top" Width="121" Height="55"/>
 
 
